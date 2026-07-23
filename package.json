@@ -11,7 +11,7 @@
     "npm": ">=9.0.0"
   },
   "scripts": {
-    "dev": "concurrently \"npm run dev --workspace=xconfess-backend\" \"npm run dev --workspace=xconfess-frontend\"",
+    "dev": "node api.js && concurrently \"npm run dev --workspace=xconfess-backend\" \"npm run dev --workspace=xconfess-frontend\"",
     "dev:backend": "npm run dev --workspace=xconfess-backend",
     "dev:frontend": "npm run dev --workspace=xconfess-frontend",
     "backend:build": "npm run build --workspace=xconfess-backend",
@@ -27,7 +27,7 @@
     "contract:fmt:check": "npm run fmt:check --workspace=xconfess-contracts",
     "contract:clean": "npm run clean --workspace=xconfess-contracts",
     "contract:deploy:testnet": "npm run deploy:testnet --workspace=xconfess-contracts",
-    "build": "npm run backend:build && npm run contract:build:release",
+    "build": "node api.js && npm run backend:build && npm run contract:build:release",
     "test": "npm run backend:test && npm run contract:test",
     "lint": "npm run backend:lint && npm run contract:lint",
     "frontend:build": "npm run build --workspace=xconfess-frontend",
